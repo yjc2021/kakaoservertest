@@ -11,6 +11,12 @@ const Oauth2Redirect = (props) => {
       .get(`http://localhost:8080/test?code=${code}`)
       .then((res) => console.log(res))
       .catch((error) => console.log(error.response));
+    return () => {
+      axios
+        .get(`http://localhost:8080/test?code=${code}`)
+        .then((res) => console.log(res))
+        .catch((error) => console.log(error.response));
+    };
   }, []);
   return <h1>Waiting for Authorization...</h1>;
 };
